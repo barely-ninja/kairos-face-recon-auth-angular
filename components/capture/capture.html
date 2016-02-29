@@ -1,0 +1,8 @@
+<div id="my_camera"></div>
+<form>
+    <input type=button id="snap_button" value="Take Snapshot" ng-click="$ctrl.takeSnapshot()">
+</form>
+<div id="results">Your captured image will appear here...
+  <img data-ng-src="{{$ctrl.dataURI}}" />
+</div>
+
