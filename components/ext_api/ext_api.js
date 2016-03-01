@@ -60,7 +60,7 @@ function extApiService($q, $http){
     });
   }
 
-    this.purgeGallery = function(){
+  this.purgeGallery = function(){
     var req = {
       method: 'POST',
       url: baseURL+'/gallery/remove',
@@ -69,11 +69,7 @@ function extApiService($q, $http){
         gallery_name: 'test'
       }
     }
-    return $http(req).then(function(resp){
-      console.log(resp);
-    });
+    return $http(req);
   }
-
-
 
 }

@@ -9,12 +9,21 @@ angular
 function SignupController(extApiService, authApiService) {
 
   var ctrl = this;
-
+  this.message = "Sign up by taking new picture";
   this.onImg = function(img){
-    extApiService.purgeGallery();
-    extApiService.addImgUrl(img).then(function(resp){
-      console.log(resp);
-      authApiService.createUser({id: resp});
-    })
+    extApiService.purgeGallery()
+      .then(function(){
+        return extApiService.addImgUrl(img);
+      })
+      .then(function(resp){
+        console.log(resp);
+        return authApiService.createUser({id: resp});
+      })
+      .then(function(){
+        ctrl.$router.navigate(['Login']);
+      })
+      .catch(function(){
+        ctrl.message = "Error occured, please try again"
+      })
   }
 };

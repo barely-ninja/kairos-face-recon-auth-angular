@@ -23,6 +23,7 @@ function CaptureController(){
       Webcam.snap( function(dataURI) {
           // display results in page
           ctrl.dataURI = dataURI;
+          ctrl.caption = 'Your captured image';
           ctrl.cb({img:dataURI});
 
       } );

@@ -7,8 +7,9 @@ angular
   .component('app', {
     templateUrl: 'app.html',
     $routeConfig: [
-      {path: '/login',        name: 'Login',        component: 'login',    useAsDefault: true},
+      {path: '/login',        name: 'Login',        component: 'login',         useAsDefault: true},
       {path: '/signup',       name: 'Signup',       component: 'signup'},
-      {path: '/profile:id',   name: 'Profile',      component: 'profile'}
+      {path: '/logout',       name: 'Logout',       component: 'logout'},
+      {path: '/profile/:id',  name: 'Profile',      component: 'profile'}
     ]
-  });
+  })
